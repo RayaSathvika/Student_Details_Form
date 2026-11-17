@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration & Details Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="page-container">
+    <header class="app-header">
+      <div class="logo-area">
+        <i class="fa-solid fa-graduation-cap header-icon"></i>
+        <div>
+          <h1>Student Information Management System</h1>
+          <p class="subtitle">Assignment 10.a & 10.b: HTML Form Validation & Jenkins Docker CI/CD</p>
+        </div>
+      </div>
+      <div class="badge-status">
+        <span class="pulse-indicator"></span>
+        <span>Portal Online &middot; Port 5005 (Docker :5000)</span>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="form-card">
+        <div class="card-header">
+          <h2><i class="fa-solid fa-user-plus"></i> Student Details Collection Form</h2>
+          <p>Please fill out all mandatory fields (<span class="required-star">*</span>). Client-side validation is enforced using JavaScript.</p>
+        </div>
+
+        <form id="studentForm" novalidate>
+          <div class="form-grid">
+            <!-- Full Name -->
+            <div class="form-group" id="group-fullName">
+              <label for="fullName">Full Name <span class="required-star">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-user input-icon"></i>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g. Shruti Bhagavatham" autocomplete="name" required>
+              </div>
+              <small class="error-msg" id="error-fullName"></small>
+            </div>
+
+            <!-- Student ID / Roll No -->
+            <div class="form-group" id="group-studentId">
+              <label for="studentId">Student Roll No. / ID <span class="required-star">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-id-card input-icon"></i>
+                <input type="text" id="studentId" name="studentId" placeholder="e.g. 21B91A0501" required>
+              </div>
+              <small class="error-msg" id="error-studentId"></small>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group" id="group-email">
+              <label for="email">Email Address <span class="required-star">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-envelope input-icon"></i>
+                <input type="email" id="email" name="email" placeholder="e.g. student@college.edu" autocomplete="email" required>
+              </div>
+              <small class="error-msg" id="error-email"></small>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group" id="group-phone">
+              <label for="phone">Mobile Number <span class="required-star">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-phone input-icon"></i>
+                <input type="tel" id="phone" name="phone" placeholder="e.g. 9876543210" maxlength="10" required>
+              </div>
+              <small class="error-msg" id="error-phone"></small>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="form-group" id="group-dob">
+              <label for="dob">Date of Birth <span class="required-star">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-calendar-days input-icon"></i>
+                <input type="date" id="dob" name="dob" required>
+              </div>
+              <small class="error-msg" id="error-dob"></small>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group" id="group-gender">
+              <label>Gender <span class="required-star">*</span></label>
+              <div class="radio-options">
+                <label class="radio-label">
+                  <input type="radio" name="gender" value="Male" required>
+                  <span><i class="fa-solid fa-mars"></i> Male</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="gender" value="Female">
+                  <span><i class="fa-solid fa-venus"></i> Female</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="gender" value="Other">
+                  <span><i class="fa-solid fa-genderless"></i> Other</span>
+                </label>
+              </div>
+              <small class="error-msg" id="error-gender"></small>
+            </div>
+
+            <!-- Department / Course -->
+            <div class="form-group" id="group-department">
+              <label for="department">Department / Course <span class="required-star">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-building-columns input-icon"></i>
+                <select id="department" name="department" required>
+                  <option value="" disabled selected>-- Select Department --</option>
+                  <option value="Computer Science & Engineering">Computer Science & Engineering (CSE)</option>
+                  <option value="Information Technology">Information Technology (IT)</option>
+                  <option value="Electronics & Communication">Electronics & Communication (ECE)</option>
+                  <option value="Mechanical Engineering">Mechanical Engineering (ME)</option>
+                  <option value="Civil Engineering">Civil Engineering (CE)</option>
+                  <option value="Data Science & AI">Data Science & AI</option>
+                </select>
+              </div>
+              <small class="error-msg" id="error-department"></small>
+            </div>
+
+            <!-- Year of Study -->
+            <div class="form-group" id="group-year">
+              <label for="year">Year of Study <span class="required-star">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-layer-group input-icon"></i>
+                <select id="year" name="year" required>
+                  <option value="" disabled selected>-- Select Academic Year --</option>
+                  <option value="1st Year (Semester 1 & 2)">1st Year (Semester 1 & 2)</option>
+                  <option value="2nd Year (Semester 3 & 4)">2nd Year (Semester 3 & 4)</option>
+                  <option value="3rd Year (Semester 5 & 6)">3rd Year (Semester 5 & 6)</option>
+                  <option value="4th Year (Semester 7 & 8)">4th Year (Semester 7 & 8)</option>
+                </select>
+              </div>
+              <small class="error-msg" id="error-year"></small>
+            </div>
+
+            <!-- Permanent Address -->
+            <div class="form-group full-width" id="group-address">
+              <label for="address">Permanent Address <span class="required-star">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-location-dot input-icon textarea-icon"></i>
+                <textarea id="address" name="address" rows="3" placeholder="Enter full postal address, street, city, state and PIN code" required></textarea>
+              </div>
+              <small class="error-msg" id="error-address"></small>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="btn btn-secondary" id="btnReset">
+              <i class="fa-solid fa-rotate-left"></i> Reset Form
+            </button>
+            <button type="submit" class="btn btn-primary" id="btnSubmit">
+              <i class="fa-solid fa-paper-plane"></i> Submit Details
+            </button>
+          </div>
+        </form>
+
+        <!-- Success Details View -->
+        <div id="successCard" class="success-card hidden">
+          <div class="success-header">
+            <i class="fa-solid fa-circle-check success-icon"></i>
+            <h3>Student Details Successfully Submitted & Validated!</h3>
+            <p>All mandatory validations passed. Record is active.</p>
+          </div>
+          <div class="details-table-wrapper">
+            <table class="details-table">
+              <tbody id="detailsTableBody"></tbody>
+            </table>
+          </div>
+          <div class="success-actions">
+            <button type="button" class="btn btn-primary" id="btnRegisterNew">
+              <i class="fa-solid fa-user-plus"></i> Register Another Student
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>&copy; 2026 Student Information System &middot; DevOps Lab Project (10.a & 10.b) &middot; GitHub: <code>shruti22-svg</code></p>
+    </footer>
+  </div>
+
+  <script src="/static/js/validation.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+==================================================
+           STUDENT DETAILS FORM CI/CD
+==================================================
+Jenkins Dashboard: http://localhost:8081
+Username: admin
+Password: admin123
+
+Job Name: student-details-form
+GitHub Repo: https://github.com/shruti22-svg/student-details-form.git
+Branch: main
+
+Application URL: http://localhost:5005
+Health Check: http://localhost:5005/health
+Docker Container Name: student-details-app
+Host Port: 5005
+Docker Port: 5000
+==================================================

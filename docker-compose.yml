@@ -1,0 +1,10 @@
+services:
+  student-details-app:
+    build: .
+    image: student-details-app:latest
+    container_name: student-details-app
+    ports:
+      - "5005:5000"
+    environment:
+      - PORT=5000
+    restart: unless-stopped
